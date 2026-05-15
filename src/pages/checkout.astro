@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopNavBar from '../components/TopNavBar.astro';
+import Footer from '../components/Footer.astro';
+import FloatingChat from '../components/FloatingChat.astro';
+import CheckoutForm from '../components/CheckoutForm';
+---
+
+<Layout title="Checkout - Kudus Florist">
+  <TopNavBar />
+
+  <main class="pt-28 pb-20 min-h-screen bg-background">
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 font-label-md text-on-surface-variant mb-8">
+        <a href="/" class="hover:text-primary transition-colors">Beranda</a>
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+        <a href="/koleksi" class="hover:text-primary transition-colors">Koleksi</a>
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+        <span class="text-primary">Checkout</span>
+      </div>
+
+      <h1 class="font-headline-lg text-headline-lg text-on-background mb-10">
+        Checkout
+      </h1>
+
+      <CheckoutForm client:load />
+    </div>
+  </main>
+
+  <Footer />
+  <FloatingChat />
+</Layout>

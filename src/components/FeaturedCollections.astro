@@ -1,0 +1,86 @@
+---
+import AddToCartButton from './AddToCartButton';
+
+const products = [
+  {
+    id: 'red-romance',
+    name: 'Red Romance Bouquet',
+    price: 150000,
+    badge: 'Favorit',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC7ochCDECyoryZF7Z359b8fno0-iDZZ5FpXtHSZaSkkLZA0f-CiwLWadHI0hBfz-xsPjTPy8nXLi2qrTVlKmby6u5_I6KSU93tUTC6qj7HgdsHjprFK-YUnc6bfuuhA4cYCsJNnISRF_mrsg_hlqOBavP7dsB2AUT67sYBnf9uLV_bowes1h6pAQynCDQNB3F8zOd3VkpiCBu0mK51FZM92kCxnRsfh4UUMuGWgnHK0G-EB43w1wwTaRANzc30Hdz2xDcqeC2eES4',
+    variant: 'solid' as const,
+  },
+  {
+    id: 'crimson-love',
+    name: 'Crimson Love',
+    price: 150000,
+    badge: null,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDVDR9NLUmycz533WnmTb9eHsTaOCFNXsMOYROSlfrbn5GzQwL7aDpBp3mS_axm43utVWrxmsbgfvviq3e3ktD2rJD_pnXt9nkMvliLVAZvPCTVywNN-Ftf6TxQ3XpHbH6pPFIRiuzSZRLB7MRzHx-mvWggE4pvkXkbUcX7y11paXMpWEejDmLTe7UozUUm5UEnocujaXutZzNM4gbYWXuycuuk0CYmFLtlby689hehjsN0Litw9qxwpJwpENqMpc3A3tgBag7oogQ',
+    variant: 'outline' as const,
+  },
+  {
+    id: 'ruby-serenade',
+    name: 'Ruby Serenade',
+    price: 175000,
+    badge: null,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAhh-TflekFygB3XyZOhG7VZ3ZuQQ78xgaTrwLShT0yxudfTFRVSBZWyoV0-RIYVmCcZ9CwXXfHB4xfDd7km6iifPy3ESPdMqodQUFi1RJYyDcGra-iC2BHHN_G4o9-mvX_mk6apOmK7OgPU6MBT5I60zLM_IVFJZDL1uHq01TAhK1li_LShmFUBnAN_VsD_ifQaZfT1pdKMl2kL5Wpl7n5wsG-wN7-DpkpDb9qBmuokuj2Hj6Rd85Rcya4Kgq4moBFI3n3Mnua6o4',
+    variant: 'outline' as const,
+  },
+  {
+    id: 'velvet-passion',
+    name: 'Velvet Passion',
+    price: 250000,
+    badge: 'Premium',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-6LFgB9cbH6wd-xiv8AicGLOu3rw6OIPRCbkZipOUjzKLt6gpFyewy6REhlFOO3xInJetE0A5b3ONzDeleOcflWN36heT_Do2AYeZULxahFk1O5OXE6gtidZw4Fnfw_Grft0PWKDtrdvKSmDtnH7Kl3yzVMeD9ddSURdSnQr0c8CogOKoDwbJMsfum7lSE6drNTbRK0PSngqF63566zWe2zl54rZ4Cjp9q-E1vP8pJKUyeZ4G6neRoDQB6wdzYCDpYlf719cTkvM',
+    variant: 'outline' as const,
+  },
+];
+
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(price);
+---
+
+<section class="py-32 bg-surface-container-lowest">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Pilihan Buket Bunga Merah Spesial</h2>
+        <div class="h-1 w-24 bg-primary rounded-full"></div>
+      </div>
+      <a href="/koleksi" class="text-primary font-label-md flex items-center gap-2 group transition-all duration-300">
+        Lihat Semua <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      {products.map((product) => (
+        <div class="group bg-surface-bright rounded-xl overflow-hidden shadow-sm shadow-secondary/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+          <div class="relative overflow-hidden aspect-[3/4]">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              src={product.image}
+              alt={product.name}
+            />
+            {product.badge && (
+              <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-label-md text-xs">
+                {product.badge}
+              </div>
+            )}
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline-sm text-headline-sm text-on-background mb-2">{product.name}</h3>
+            <p class="font-label-md text-primary text-lg mb-6">{formatPrice(product.price)}</p>
+            <AddToCartButton
+              client:load
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              image={product.image}
+              variant={product.variant}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

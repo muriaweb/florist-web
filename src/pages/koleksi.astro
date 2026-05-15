@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopNavBar from '../components/TopNavBar.astro';
+import Footer from '../components/Footer.astro';
+import FloatingChat from '../components/FloatingChat.astro';
+import KoleksiGrid from '../components/KoleksiGrid';
+---
+
+<Layout title="Koleksi Bunga - Kudus Florist">
+  <TopNavBar />
+
+  <main class="pt-28 pb-20 min-h-screen bg-background">
+    <!-- Page Header -->
+    <div class="bg-gradient-to-br from-primary/5 via-background to-secondary-fixed/20 py-20 mb-12">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="flex items-center gap-2 font-label-md text-on-surface-variant mb-4">
+          <a href="/" class="hover:text-primary transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span class="text-primary">Koleksi</span>
+        </div>
+        <h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-background mb-4">
+          Koleksi Bunga Kami
+        </h1>
+        <p class="font-body-lg text-on-surface-variant max-w-xl">
+          Temukan buket bunga premium yang sempurna untuk setiap momen berharga. Dipilih dengan cermat dari bunga-bunga segar terbaik.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-container-max mx-auto px-margin-desktop">
+      <KoleksiGrid client:load />
+    </div>
+  </main>
+
+  <Footer />
+  <FloatingChat />
+</Layout>

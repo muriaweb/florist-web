@@ -1,0 +1,57 @@
+---
+import CartButton from './CartButton';
+import CartDrawer from './CartDrawer';
+import MobileMenu from './MobileMenu';
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'Beranda', href: '/' },
+  { label: 'Koleksi', href: '/koleksi' },
+  { label: 'Tentang Kami', href: '/tentang-kami' },
+  { label: 'Kontak', href: '/kontak' },
+];
+---
+
+<nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-sm shadow-secondary/5">
+  <div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20 w-full">
+    <!-- Logo -->
+    <a href="/" class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Kudus Florist</a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-10">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`font-label-md text-label-md transition-all duration-300 pb-1 ${
+            currentPath === link.href
+              ? 'text-primary border-b-2 border-primary'
+              : 'text-on-surface-variant hover:text-primary'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-6">
+      <!-- Cart Button (React) -->
+      <CartButton client:load />
+
+      <!-- Desktop CTA -->
+      <a
+        href="/koleksi"
+        class="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md hover:bg-primary-container transition-all duration-300 scale-95 active:scale-90"
+      >
+        Pesan Sekarang
+      </a>
+
+      <!-- Mobile Hamburger (React) -->
+      <MobileMenu client:load currentPath={currentPath} />
+    </div>
+  </div>
+</nav>
+
+<!-- Cart Drawer (React, always rendered) -->
+<CartDrawer client:load />

@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopNavBar from '../components/TopNavBar.astro';
+import Footer from '../components/Footer.astro';
+import FloatingChat from '../components/FloatingChat.astro';
+
+const advantages = [
+  { icon: 'local_florist', title: 'Bunga Segar Setiap Hari', desc: 'Kami berkomitmen menghadirkan bunga segar pilihan setiap hari langsung dari petani lokal dan supplier impor terpercaya.' },
+  { icon: 'local_shipping', title: 'Pengiriman Cepat Area Kudus', desc: 'Layanan pengiriman kami menjangkau seluruh wilayah Kudus Kota dan sekitarnya dengan estimasi 2–4 jam setelah pemesanan dikonfirmasi.' },
+  { icon: 'workspace_premium', title: 'Perangkai Berpengalaman', desc: 'Tim florist kami telah berpengalaman lebih dari 10 tahun dalam merangkai bunga untuk berbagai momen—dari wisuda hingga pernikahan mewah.' },
+  { icon: 'verified', title: 'Garansi Kesegaran', desc: 'Setiap buket kami berikan garansi kesegaran 3 hari. Jika bunga tidak segar saat diterima, kami akan menggantinya tanpa biaya tambahan.' },
+];
+
+const team = [
+  { name: 'Ibu Sari Wulandari', role: 'Founder & Head Florist', initials: 'SW' },
+  { name: 'Bapak Dimas Prasetyo', role: 'Manajer Operasional', initials: 'DP' },
+  { name: 'Mbak Lestari Dewi', role: 'Senior Florist', initials: 'LD' },
+];
+---
+
+<Layout title="Tentang Kami - Kudus Florist">
+  <TopNavBar />
+
+  <main class="pt-20 min-h-screen bg-background">
+    <!-- Hero Mini -->
+    <div class="relative bg-primary py-28 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <span class="material-symbols-outlined text-[40rem] text-white absolute -right-20 -top-20">local_florist</span>
+      </div>
+      <div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+        <div class="flex items-center gap-2 font-label-md text-on-primary/60 mb-4">
+          <a href="/" class="hover:text-on-primary transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span class="text-on-primary">Tentang Kami</span>
+        </div>
+        <h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-primary mb-4">
+          Tentang Kudus Florist
+        </h1>
+        <p class="font-body-lg text-on-primary/80 max-w-2xl">
+          Toko bunga premium yang melayani kota Kudus dengan penuh cinta sejak 2012.
+        </p>
+      </div>
+    </div>
+
+    <!-- Story Section -->
+    <section class="py-24">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-tertiary-fixed rounded-xl -rotate-2 transition-transform group-hover:rotate-0"></div>
+            <img
+              class="relative rounded-lg shadow-xl w-full aspect-[4/5] object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM_8MSJ62kMXdxY3URlLITrfBGPs0RXgJcBsZs1E-_EeRevWxDj6juwvimHKoK2k_33PZZSghG5mRquk2XuRRFAO3lBnHVy7t_2ccq2irr5aGlFIKaRoMhuNgRyvK911ejnnwuFz9X75CvnBDLEDzO5V7HieXi5JByu0aJG7ta1GIbgMOlzmDm_7vIP4LRvuORYLN4IdGKhNtG80PeX9rCGOWnL09TfooALt97Kj7UhAuzP70Bd865X7L0sjbUtzrEi07y2BxCY5M"
+              alt="Florist merangkai bunga"
+            />
+          </div>
+          <div class="space-y-6">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-xs uppercase tracking-widest">
+              Cerita Kami
+            </div>
+            <h2 class="font-headline-lg text-headline-lg text-on-background leading-tight">
+              Dua Belas Tahun Merangkai Keindahan
+            </h2>
+            <p class="font-body-lg text-on-surface-variant">
+              Kudus Florist didirikan pada tahun 2012 oleh Ibu Sari Wulandari, seorang pecinta bunga yang bercita-cita menghadirkan keindahan alam ke setiap sudut Kudus. Berawal dari sebuah kios kecil di Pasar Kliwon, kini kami telah berkembang menjadi toko bunga premium terpercaya di kota Kudus.
+            </p>
+            <p class="font-body-lg text-on-surface-variant">
+              Dengan tim florist berpengalaman dan jaringan pemasok bunga lokal maupun impor, kami mampu menghadirkan buket segar berkualitas tinggi untuk berbagai momen—dari perayaan ulang tahun sederhana hingga pernikahan mewah. Setiap rangkaian dibuat dengan tangan, penuh cinta, dan perhatian terhadap detail.
+            </p>
+            <div class="grid grid-cols-2 gap-8 pt-4">
+              <div>
+                <div class="font-headline-sm text-headline-sm text-primary mb-1">12+</div>
+                <p class="font-label-md text-label-md text-on-surface-variant">Tahun Pengalaman</p>
+              </div>
+              <div>
+                <div class="font-headline-sm text-headline-sm text-primary mb-1">5.000+</div>
+                <p class="font-label-md text-label-md text-on-surface-variant">Momen Berkesan</p>
+              </div>
+              <div>
+                <div class="font-headline-sm text-headline-sm text-primary mb-1">100%</div>
+                <p class="font-label-md text-label-md text-on-surface-variant">Bunga Segar</p>
+              </div>
+              <div>
+                <div class="font-headline-sm text-headline-sm text-primary mb-1">4.9★</div>
+                <p class="font-label-md text-label-md text-on-surface-variant">Rating Pelanggan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="py-24 bg-surface-container-lowest">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="text-center mb-16">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-xs uppercase tracking-widest mb-4">
+            Keunggulan Kami
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-on-background">Mengapa Memilih Kami?</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {advantages.map((item) => (
+            <div class="text-center group p-6 rounded-xl hover:bg-primary/5 transition-colors">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                <span class={`material-symbols-outlined text-primary group-hover:text-on-primary text-2xl transition-colors`}>{item.icon}</span>
+              </div>
+              <h3 class="font-headline-sm text-on-background mb-3 text-lg">{item.title}</h3>
+              <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-24">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="text-center mb-16">
+          <h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Tim Kami</h2>
+          <p class="font-body-lg text-on-surface-variant max-w-xl mx-auto">
+            Dibalik setiap buket indah, ada tangan-tangan terampil dan hati yang penuh semangat.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          {team.map((member) => (
+            <div class="text-center group">
+              <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-all duration-300">
+                <span class="font-headline-sm text-headline-sm text-primary group-hover:text-on-primary transition-colors">{member.initials}</span>
+              </div>
+              <h3 class="font-headline-sm text-on-background text-base font-semibold mb-1">{member.name}</h3>
+              <p class="font-label-md text-on-surface-variant text-sm">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-primary">
+      <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+        <h2 class="font-headline-lg text-headline-lg text-on-primary mb-4">Siap Memesan Bunga?</h2>
+        <p class="font-body-lg text-on-primary/80 mb-8 max-w-lg mx-auto">
+          Percayakan momen spesial Anda kepada kami. Pesan sekarang dan rasakan perbedaannya.
+        </p>
+        <a href="/koleksi" class="inline-block bg-white text-primary px-10 py-4 rounded-xl font-label-md hover:bg-primary-fixed transition-colors shadow-lg">
+          Lihat Koleksi Bunga
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingChat />
+</Layout>
